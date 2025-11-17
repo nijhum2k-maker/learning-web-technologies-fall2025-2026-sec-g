@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modular Calculator</title>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f1f1f1;
+        font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+        width: 260px;
+        background: white;
+        padding: 15px;
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+
+    #display {
+        width: 100%;
+        height: 50px;
+        font-size: 22px;
+        margin-bottom: 10px;
+        text-align: right;
+        padding-right: 10px;
+        border: 1px solid black;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+    }
+
+    button {
+        height: 45px;
+        font-size: 18px;
+        border: 1px solid black;
+        background: #eaeaea;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #d7d7d7;
+    }
+
+    .ac { background: #ff8a80; }
+    .c  { background: #ffcc80; }
+
+</style>
+</head>
+<body>
+
+<div class="calculator">
+    <input type="text" id="display" disabled>
+
+    <div class="grid">
+
+        <!-- Operator row -->
+        <button onclick="addOperation()">+</button>
+        
+
+        <!-- Row 1 -->
+        <button onclick="pressNumber('1')">1</button>
+        <button onclick="pressNumber('4')">4</button>
+        <button onclick="calculateResult()">=</button>
+        <button class="ac" onclick="clearAll()">AC</button>
+
+        <!-- Row 2 -->
+        <button onclick="pressNumber('2')">2</button>
+        <button onclick="pressNumber('5')">5</button>
+        <button onclick="pressNumber('8')">8</button>
+        <button class="c" onclick="clearLast()">C</button>
+
+        <!-- Row 3 -->
+        <button onclick="pressNumber('3')">3</button>
+        <button onclick="pressNumber('6')">6</button>
+        <button onclick="pressNumber('9')">9</button>
+        <button onclick="pressNumber('0')">0</button>
+
+    </div>
+</div>
+
+<script>
+
+    // -------------------------------
+    //   INDIVIDUAL FUNCTIONS
+    // -------------------------------
+
+    function pressNumber(num) {
+        document.getElementById("display").value += num;
+    }
+
+    function addOperation() {
+        document.getElementById("display").value += "+";
+    }
+
+  
+   
+
+   
+
+   
+
+    function clearAll() {
+        document.getElementById("display").value = "";
+    }
+
+    function clearLast() {
+        let text = document.getElementById("display").value;
+        document.getElementById("display").value = text.slice(0, -1);
+    }
+
+    function calculateResult() {
+        let exp = document.getElementById("display").value;
+        if (exp) {
+            document.getElementById("display").value = eval(exp);
+        }
+    }
+
+</script>
+
+</body>
+</html>
+
+
