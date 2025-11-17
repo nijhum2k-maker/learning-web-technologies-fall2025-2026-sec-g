@@ -66,6 +66,7 @@
         <!-- Operator row -->
         <button onclick="addOperation()">+</button>
         <button onclick="subtractOperation()">-</button>
+         <button onclick="multiplyOperation()">×</button>
 
         <!-- Row 1 -->
         <button onclick="pressNumber('1')">1</button>
@@ -107,6 +108,9 @@
         document.getElementById("display").value += "-";
     }
    
+    function multiplyOperation() {
+        document.getElementById("display").value += "*";
+    }
 
    
 
@@ -132,4 +136,5 @@
 
 </body>
 </html>
+
 
